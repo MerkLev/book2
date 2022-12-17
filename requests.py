@@ -64,3 +64,18 @@ def type_of_view(Data):
         else:
             Data = False
     return (Data)
+
+
+def type_of_file_extension(Data):
+    if Data == 'csv':
+        Data = True
+    elif Data == 'txt':
+        Data = False
+    else:
+        while Data != 'csv' and Data != 'txt':
+            Data = input('некорректный тип запроса, ввод типа строго маске (csv/txt):')
+        if Data == 'csv':
+            Data = True
+        else:
+            Data = False
+    return (Data)
