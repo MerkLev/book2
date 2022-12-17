@@ -9,8 +9,8 @@ def manual_import(counts):
 
 
 def file_import(file_Name1):
-    buffer = ''
-    with open(f'{file_Name1}', 'r', encoding='utf-8') as file:
+    buffer = []
+    with open(f'{file_Name1}.txt', 'r', encoding='utf-8') as file:
         for line in file:
             buffer.append(line)
     with open('book.txt', 'a', encoding='utf-8') as file:
@@ -24,12 +24,12 @@ def csv_file_import(file_Name1):
         row_buffer = [row for row in file_reader]
     with open("book.csv", mode="a", encoding='utf-8') as book:
         file_writer = csv.writer(book, delimiter=",", lineterminator="\r")
-        for i in range(0, 3):
-            file_writer.writerow(row_buffer[i])
+        for i in range(0, len(row_buffer)):
+            file_writer.writerow([row_buffer[i]])
 
 
 def csv_manual_import(counts):
     with open("book.csv", mode="a", encoding='utf-8') as book:
         file_writer = csv.writer(book, delimiter=",", lineterminator="\r")
-        for i in range(0, 3):
-            file_writer.writerow(input('Вводите значения в формате (Фамилия Имя, вн. номер, отдел)='))
+        for i in range(0, counts):
+            file_writer.writerow([str(input('Вводите значения в формате (Фамилия Имя, вн. номер, отдел)='))])

@@ -79,3 +79,17 @@ def type_of_file_extension(Data):
         else:
             Data = False
     return (Data)
+
+def csv_type_export(Data):
+    if Data == 'файл':
+        Data = True
+    elif Data == 'фильтр':
+        Data = False
+    else:
+        while Data != 'файл' and Data != 'фильтр':
+            Data = input('некорректный тип запроса, ввод типа строго маске (файл/фильтр):')
+        if Data == 'файл':
+            Data = True
+        else:
+            Data = False
+    return (Data)

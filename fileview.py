@@ -9,7 +9,6 @@ def whole_view(data):
 
 
 def search_view(data):
-    if (data is True):
         with open('book.txt', 'r', encoding='utf-8') as book:
             buffer = []
             search_element = input('Введите атрибут для поиска = ')
@@ -32,7 +31,7 @@ def csv_search_view(search_element):
     with open('book.csv', 'r', encoding='utf-8') as book:
         buffer_export2 = []
         for line in book:
-            buffer_export2.append(line)
-    filtered = list(filter(lambda x: search_element in x, buffer_export2))
+            buffer_export2.append(str(line))
+    filtered = list(filter(lambda x: str(search_element) in x, buffer_export2))
     for i in filtered:
         print(i)

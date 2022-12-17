@@ -2,7 +2,7 @@ import import_Book as ib
 import requests as rq
 import export as ep
 import fileview as fv
-
+import csv
 
 type_Request = input('Введите тип работы со справочником(чтение, изменение данных): ')
 Mode = rq.type_of_mode(type_Request)
@@ -16,7 +16,8 @@ if (extention is True):
         if (Mode is True):
             fv.csv_whole_view(Mode)
         else:
-            fv.csv_search_view(Mode)
+            search_element = input('введите элемент для поиска =')
+            fv.csv_search_view(search_element)
     else:
         type_Request = input('Введите тип запроса для работы со справочником (импорт/экспорт): ')
         Import = rq.type_of_usage(type_Request)
@@ -34,7 +35,7 @@ if (extention is True):
             ffile = rq.csv_type_export(type_Request)
             if (ffile is True):
                 file_name = input('Введите имя файла для экспорта данных = ')
-                ep.csv_file_export(ffile)
+                ep.csv_file_export(file_name)
             else:
                 search_element = input('Введите атрибут для поиска = ')
                 ep.csv_export_byData(search_element)
